@@ -1,0 +1,229 @@
+{
+  "bundle_name": "webapp_bundle_en",
+  "bundle_version": "v1.0.0",
+  "created_at": "2026-04-02 11:00:42",
+  "language": "en",
+  "task": "binary_risk_prediction",
+  "model": {
+    "display_name": "Naive Bayes",
+    "artifact_relative_path": "models/Best_Model_Final.joblib",
+    "positive_class": 1,
+    "negative_class": 0,
+    "binary_decision_threshold": 0.84,
+    "probability_output": "positive_class_probability"
+  },
+  "ui": {
+    "theme": {
+      "primary_color": "#F4A63A",
+      "low_risk_color": "#32B66A",
+      "intermediate_risk_color": "#F4A63A",
+      "high_risk_color": "#FF4D4F",
+      "background_color": "#F7F8FA",
+      "card_background": "#FFFFFF",
+      "text_color": "#243246"
+    },
+    "text": {
+      "app_title": "Clinical Risk Calculator",
+      "app_subtitle": "Probability-based risk assessment for binary outcome prediction",
+      "input_section_title": "Patient Information",
+      "result_section_title": "Estimated Risk",
+      "submit_button_text": "Calculate Risk",
+      "reset_button_text": "Reset",
+      "risk_band_caption": "Risk category based on the predicted probability",
+      "disclaimer": "This calculator is intended for decision support only. It does not replace clinical judgment, diagnosis, or treatment planning. Use only in populations reasonably similar to the development data.",
+      "footer_note": "Model output should be interpreted together with the full clinical context."
+    },
+    "risk_bands": [
+      {
+        "key": "low",
+        "label": "Low Risk",
+        "lower": 0.0,
+        "upper": 0.3,
+        "color": "#32B66A",
+        "description": "The estimated risk is relatively low. Continue routine evaluation and interpret together with the full clinical context."
+      },
+      {
+        "key": "intermediate",
+        "label": "Intermediate Risk",
+        "lower": 0.3,
+        "upper": 0.7,
+        "color": "#F4A63A",
+        "description": "The estimated risk is intermediate. Additional clinical assessment and closer review are recommended."
+      },
+      {
+        "key": "high",
+        "label": "High Risk",
+        "lower": 0.7,
+        "upper": 1.0,
+        "color": "#FF4D4F",
+        "description": "The estimated risk is high. Prompt clinical attention and further evaluation should be considered."
+      }
+    ]
+  },
+  "features": {
+    "feature_order": [
+      "Previous_Embolism",
+      "Atrial_Fibrillation",
+      "Staphylococcus_aureus",
+      "HGB",
+      "Temperature",
+      "vegetation_size",
+      "WBC",
+      "D_DI",
+      "URE",
+      "PLT"
+    ],
+    "display_name_map": {
+      "Previous_Embolism": "Previous Embolism",
+      "Atrial_Fibrillation": "Atrial Fibrillation",
+      "Staphylococcus_aureus": "Staphylococcus aureus",
+      "HGB": "HGB",
+      "Temperature": "Temperature",
+      "vegetation_size": "Vegetation size",
+      "WBC": "WBC",
+      "D_DI": "D-DI",
+      "URE": "URE",
+      "PLT": "PLT"
+    },
+    "categorical": {
+      "Previous_Embolism": {
+        "display_name": "Previous Embolism",
+        "type": "categorical",
+        "options": [
+          {
+            "raw_value": 0,
+            "display_value": "No",
+            "encoded_value": 0
+          },
+          {
+            "raw_value": 1,
+            "display_value": "Yes",
+            "encoded_value": 1
+          }
+        ]
+      },
+      "Atrial_Fibrillation": {
+        "display_name": "Atrial Fibrillation",
+        "type": "categorical",
+        "options": [
+          {
+            "raw_value": 0,
+            "display_value": "No",
+            "encoded_value": 0
+          },
+          {
+            "raw_value": 1,
+            "display_value": "Yes",
+            "encoded_value": 1
+          }
+        ]
+      },
+      "Staphylococcus_aureus": {
+        "display_name": "Staphylococcus aureus",
+        "type": "categorical",
+        "options": [
+          {
+            "raw_value": 0,
+            "display_value": "No",
+            "encoded_value": 0
+          },
+          {
+            "raw_value": 1,
+            "display_value": "Yes",
+            "encoded_value": 1
+          }
+        ]
+      }
+    },
+    "continuous": {
+      "HGB": {
+        "min": 30.0,
+        "max": 250.0,
+        "step": 1.0,
+        "unit": "",
+        "display_name": "HGB",
+        "type": "number"
+      },
+      "Temperature": {
+        "min": 34.0,
+        "max": 43.0,
+        "step": 0.1,
+        "unit": "°C",
+        "display_name": "Temperature",
+        "type": "number"
+      },
+      "vegetation_size": {
+        "min": 0.0,
+        "max": 50.0,
+        "step": 0.1,
+        "unit": "mm",
+        "display_name": "Vegetation size",
+        "type": "number"
+      },
+      "WBC": {
+        "min": 0.0,
+        "max": 60.0,
+        "step": 0.1,
+        "unit": "",
+        "display_name": "WBC",
+        "type": "number"
+      },
+      "D_DI": {
+        "min": 0.0,
+        "max": 80.0,
+        "step": 0.1,
+        "unit": "",
+        "display_name": "D-DI",
+        "type": "number"
+      },
+      "URE": {
+        "min": 0.0,
+        "max": 50.0,
+        "step": 0.1,
+        "unit": "",
+        "display_name": "URE",
+        "type": "number"
+      },
+      "PLT": {
+        "min": 10.0,
+        "max": 1000.0,
+        "step": 1.0,
+        "unit": "",
+        "display_name": "PLT",
+        "type": "number"
+      }
+    }
+  },
+  "encodings": {
+    "categorical_value_to_code": {
+      "Previous_Embolism": {
+        "0": 0,
+        "1": 1
+      },
+      "Atrial_Fibrillation": {
+        "0": 0,
+        "1": 1
+      },
+      "Staphylococcus_aureus": {
+        "0": 0,
+        "1": 1
+      }
+    }
+  },
+  "example_input": {
+    "Previous_Embolism": 0,
+    "Atrial_Fibrillation": 0,
+    "Staphylococcus_aureus": 0,
+    "HGB": 106.807,
+    "Temperature": 38.5,
+    "vegetation_size": 9.25,
+    "WBC": 8.428,
+    "D_DI": 1.53,
+    "URE": 6.005,
+    "PLT": 190.0
+  },
+  "notes": {
+    "intended_use": "This bundle is intended for the Streamlit inference app. It provides UI configuration, feature schema, display names, risk-band definitions, and the path to the frozen model artifact.",
+    "warning": "The app-level risk bands are for presentation and user interpretation. They are not identical to the binary decision threshold used for model classification."
+  }
+}
